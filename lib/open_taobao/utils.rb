@@ -1,5 +1,3 @@
-require "uri"
-
 module OpenTaobao
   class Utils
     class << self

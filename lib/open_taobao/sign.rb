@@ -1,5 +1,3 @@
-require "openssl"
-
 module OpenTaobao
   class MD5
     def self.sign(key, string)
