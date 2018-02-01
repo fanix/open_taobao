@@ -1,6 +1,7 @@
 require "openssl"
-require "uri"
+require "hmac-md5"
 require "rest-client"
+require "cgi"
 require "json"
 
 module OpenTaobao

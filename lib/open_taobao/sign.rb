@@ -1,22 +1,13 @@
 module OpenTaobao
-  class MD5
-    def self.sign(key, string)
-      Digest::MD5.hexdigest("#{string}#{key}")
-    end
+  class Sign
+    class << self
+      def md5
+        Digest::MD5.hexdigest(string)
+      end
 
-    def self.verify?(key, string, sign)
-      sign == sign(key, string)
-    end
-  end
-
-  class HMAC
-    def self.sign(key, string)
-      digest = OpenSSL::Digest.new('sha1')
-      OpenSSL::HMAC.digest(digest, key, string)
-    end
-
-    def self.verify?(key, string, sign)
-      sign == sign(key, string)
+      def hmac
+        HMAC::MD5.new(string).digest
+      end
     end
   end
 end
