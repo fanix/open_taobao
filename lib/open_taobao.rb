@@ -12,7 +12,6 @@ end
 
 require_relative "open_taobao/version"
 require_relative "open_taobao/error"
-require_relative "open_taobao/service"
 require_relative "open_taobao/sign"
 require_relative "open_taobao/utils"
 require_relative "open_taobao/validation"
