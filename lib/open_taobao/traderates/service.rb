@@ -8,6 +8,7 @@ module OpenTaobao
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TRADERATES_GET)
 
         app_key = options[:app_key] || OpenTaobao.app_key
+        app_secret = options[:app_secret] || OpenTaobao.app_secret
         sign_method = (options[:sign_method] || :md5).to_s.upcase
         return_format = (options[:return_format] || :json).to_s.upcase
 
@@ -18,7 +19,7 @@ module OpenTaobao
                  "role"     => params["role"]
           })
 
-        signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, key, sign_method))
+        signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
         OpenTaobao::Utils.url_with_params signed_params
       end
