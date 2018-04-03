@@ -1,7 +1,7 @@
 module OpenTaobao
   class Utils
     class << self
-      GATEWAY_URL = "https://eco.taobao.com/router/rest"
+      GATEWAY_URL = OpenTaobao.gateway_url
 
       def url
         GATEWAY_URL

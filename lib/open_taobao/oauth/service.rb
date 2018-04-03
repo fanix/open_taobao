@@ -18,7 +18,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params, "http://gw.api.taobao.com/router/rest"
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.oauth_token_gateway_url
       end
     end
   end
