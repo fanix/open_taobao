@@ -43,10 +43,8 @@ module OpenTaobao
         case sign_type
         when 'md5'
           OpenTaobao::Sign.md5(string)
-        when 'hmac'
-          OpenTaobao::Sign.hmac(string)
         else
-          raise ArgumentError, "invalid sign_type #{sign_type}, allow value: 'MD5', 'HMAC'"
+          raise ArgumentError, "invalid sign_type #{sign_type}, allow value: 'MD5'"
         end
       end
 
