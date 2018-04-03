@@ -18,8 +18,7 @@ module OpenTaobao
           "sign_method"   => sign_method,
           "timestamp"     => Time.now.utc.strftime('%Y-%m-%d %H:%M:%S').to_s,
           "format"        => return_format,
-          "v"             => '2.0',
-          "simplify"      => false
+          "v"             => '2.0'
         }
       end
 
@@ -38,9 +37,9 @@ module OpenTaobao
       def get_sign params, app_secret, sign_type
         string = to_sign(params, app_secret)
         case sign_type
-        when 'MD5'
+        when 'md5'
           OpenTaobao::Sign.md5(string)
-        when 'HMAC'
+        when 'hmac'
           OpenTaobao::Sign.hmac(string)
         else
           raise ArgumentError, "invalid sign_type #{sign_type}, allow value: 'MD5', 'HMAC'"

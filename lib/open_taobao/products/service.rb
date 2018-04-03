@@ -9,8 +9,8 @@ module OpenTaobao
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
-        sign_method = (options[:sign_method] || :md5).to_s.upcase
-        return_format = (options[:return_format] || :json).to_s.upcase
+        sign_method = (options[:sign_method] || :md5).to_s
+        return_format = (options[:return_format] || :json).to_s
 
         params = OpenTaobao::Utils.base_params('taobao.item.skus.get', app_key, sign_method, return_format).merge({
                  "fields"    => params["fields"],
@@ -30,8 +30,8 @@ module OpenTaobao
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
-        sign_method = (options[:sign_method] || :md5).to_s.upcase
-        return_format = (options[:return_format] || :json).to_s.upcase
+        sign_method = (options[:sign_method] || :md5).to_s
+        return_format = (options[:return_format] || :json).to_s
 
         params = OpenTaobao::Utils.base_params('taobao.items.onsale.get', app_key, sign_method, return_format).merge({
                  "session"    => params["session"],
@@ -51,8 +51,8 @@ module OpenTaobao
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
-        sign_method = (options[:sign_method] || :md5).to_s.upcase
-        return_format = (options[:return_format] || :json).to_s.upcase
+        sign_method = (options[:sign_method] || :md5).to_s
+        return_format = (options[:return_format] || :json).to_s
 
         params = OpenTaobao::Utils.base_params('taobao.items.inventory.get', app_key, sign_method, return_format).merge({
                  "session"    => params["session"],
@@ -72,8 +72,8 @@ module OpenTaobao
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
-        sign_method = (options[:sign_method] || :md5).to_s.upcase
-        return_format = (options[:return_format] || :json).to_s.upcase
+        sign_method = (options[:sign_method] || :md5).to_s
+        return_format = (options[:return_format] || :json).to_s
 
         params = OpenTaobao::Utils.base_params('taobao.item.seller.get', app_key, sign_method, return_format).merge({
                  "session"    => params["session"],
@@ -94,8 +94,8 @@ module OpenTaobao
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
-        sign_method = (options[:sign_method] || :md5).to_s.upcase
-        return_format = (options[:return_format] || :json).to_s.upcase
+        sign_method = (options[:sign_method] || :md5).to_s
+        return_format = (options[:return_format] || :json).to_s
 
         params = OpenTaobao::Utils.base_params('taobao.ump.promotion.get', app_key, sign_method, return_format).merge({
                  "item_id"    => params["item_id"]
