@@ -31,7 +31,11 @@ module OpenTaobao
       end
 
       def to_sign hash, app_secret
-        "#{app_secret}"<<hash.sort.flatten.join<<"#{app_secret}"
+        "#{app_secret}#{sorted_hash_string hash}#{app_secret}"
+      end
+
+      def sorted_hash_string hash
+        hash.map {|k, v| "#{k}#{v}" }.sort.join
       end
 
       def get_sign params, app_secret, sign_type
