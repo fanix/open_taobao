@@ -6,6 +6,7 @@ module OpenTaobao
       def self.taobao_trades_sold_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TRADES_SOLD_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -27,6 +28,7 @@ module OpenTaobao
       def self.taobao_trade_fullinfo_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TRADE_FULLINFO_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret

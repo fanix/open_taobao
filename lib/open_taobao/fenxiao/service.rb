@@ -6,6 +6,7 @@ module OpenTaobao
       def self.taobao_fenxiao_dealer_requisitionorder_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_FENXIAO_DEALER_REQUISITIONORDER_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -28,6 +29,7 @@ module OpenTaobao
       def self.taobao_fenxiao_orders_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_FENXIAO_ORDERS_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret

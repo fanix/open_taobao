@@ -6,6 +6,7 @@ module OpenTaobao
       def self.taobao_item_skus_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_ITEM_SKUS_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -27,6 +28,7 @@ module OpenTaobao
       def self.taobao_items_onsale_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_ITEMS_ONSALE_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -48,6 +50,7 @@ module OpenTaobao
       def self.taobao_items_inventory_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_ITEMS_INVENTORY_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -69,6 +72,7 @@ module OpenTaobao
       def self.taobao_item_seller_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_ITEM_SELLER_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret
@@ -91,6 +95,7 @@ module OpenTaobao
       def self.taobao_ump_promotion_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_UMP_PROMOTION_GET)
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.gateway_url)
 
         app_key = options[:app_key] || OpenTaobao.app_key
         app_secret = options[:app_secret] || OpenTaobao.app_secret

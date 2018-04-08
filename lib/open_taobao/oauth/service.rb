@@ -4,8 +4,7 @@ module OpenTaobao
       #获取Access Token
       TAOBAO_TOP_AUTH_TOKEN_CREATE = %w( code )
       def self.taobao_top_auth_token_create(params, options = {})
-        oauth_token_gateway_url = OpenTaobao.oauth_token_gateway_url
-        raise "invalid oauth_token_gateway_url" unless oauth_token_gateway_url.present?
+        OpenTaobao::Validation.check_gateway_url(OpenTaobao.oauth_token_gateway_url)
 
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TOP_AUTH_TOKEN_CREATE)
@@ -21,7 +20,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params, oauth_token_gateway_url
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.oauth_token_gateway_url
       end
     end
   end
