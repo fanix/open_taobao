@@ -1,14 +1,8 @@
 module OpenTaobao
   class Utils
     class << self
-      GATEWAY_URL = OpenTaobao.gateway_url
-
-      def url
-        GATEWAY_URL
-      end
-
-      def url_with_params signed_params, replace_url = nil
-        [replace_url || url, to_query(signed_params)].join("?")
+      def url_with_params signed_params, url
+        [url, to_query(signed_params)].join("?")
       end
 
       def base_params(method, app_key, sign_method, return_format)

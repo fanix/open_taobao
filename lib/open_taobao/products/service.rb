@@ -19,7 +19,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
 
       #获取当前会话用户出售中的商品列表
@@ -40,7 +40,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
 
       #得到当前会话用户库存中的商品列表
@@ -61,7 +61,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
 
       #获取单个商品详细信息
@@ -83,7 +83,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
 
       #商品优惠详情查询
@@ -103,7 +103,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
     end
   end

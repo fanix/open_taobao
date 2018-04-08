@@ -19,7 +19,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
 
       #获取单笔交易的详细信息
@@ -41,7 +41,7 @@ module OpenTaobao
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
 
-        OpenTaobao::Utils.url_with_params signed_params
+        OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
     end
   end
