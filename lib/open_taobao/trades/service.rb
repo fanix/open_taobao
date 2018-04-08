@@ -2,7 +2,7 @@ module OpenTaobao
   module Trades
     module Service
       #查询卖家已卖出的交易数据（根据创建时间）
-      TAOBAO_TRADES_SOLD_GET = %w( session fields start_created end_created status buyer_nick type ext_type rate_status tag page_no page_size use_has_next )
+      TAOBAO_TRADES_SOLD_GET = %w( session fields )
       def self.taobao_trades_sold_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TRADES_SOLD_GET)
