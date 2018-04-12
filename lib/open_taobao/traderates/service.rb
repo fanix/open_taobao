@@ -20,14 +20,14 @@ module OpenTaobao
                  "role"       => params["role"]
           })
 
-        real_params.merge("result" => params["result"]) if params["result"].present?
-        real_params.merge("page_no" => params["page_no"]) if params["page_no"].present?
-        real_params.merge("page_size" => params["page_size"]) if params["page_size"].present?
-        real_params.merge("start_date" => params["start_date"]) if params["start_date"].present?
-        real_params.merge("end_date" => params["end_date"]) if params["end_date"].present?
-        real_params.merge("tid" => params["tid"]) if params["tid"].present?
-        real_params.merge("num_iid" => params["num_iid"]) if params["num_iid"].present?
-        real_params.merge("use_has_next" => params["use_has_next"]) if params["use_has_next"].present?
+        real_params = real_params.merge("result" => params["result"]) if params["result"].present?
+        real_params = real_params.merge("page_no" => params["page_no"]) if params["page_no"].present?
+        real_params = real_params.merge("page_size" => params["page_size"]) if params["page_size"].present?
+        real_params = real_params.merge("start_date" => params["start_date"]) if params["start_date"].present?
+        real_params = real_params.merge("end_date" => params["end_date"]) if params["end_date"].present?
+        real_params = real_params.merge("tid" => params["tid"]) if params["tid"].present?
+        real_params = real_params.merge("num_iid" => params["num_iid"]) if params["num_iid"].present?
+        real_params = real_params.merge("use_has_next" => params["use_has_next"]) if params["use_has_next"].present?
 
         signed_params = real_params.merge("sign" => OpenTaobao::Utils.get_sign(real_params, app_secret, sign_method))
 
