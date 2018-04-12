@@ -2,7 +2,7 @@ module OpenTaobao
   module Traderates
     module Service
       #搜索评价信息
-      TAOBAO_TRADERATES_GET = %w( session fields rate_type role )
+      TAOBAO_TRADERATES_GET = %w( session fields rate_type role page_no page_size )
       def self.taobao_traderates_get(params, options = {})
         params = OpenTaobao::Utils.stringify_keys(params)
         OpenTaobao::Validation.check_required_params(params, TAOBAO_TRADERATES_GET)
@@ -17,7 +17,9 @@ module OpenTaobao
                  "session"    => params["session"],
                  "fields"     => params["fields"],
                  "rate_type"  => params["rate_type"],
-                 "role"     => params["role"]
+                 "role"       => params["role"],
+                 "page_no"    => params["page_no"],
+                 "page_size"  => params["page_size"]
           })
 
         signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
