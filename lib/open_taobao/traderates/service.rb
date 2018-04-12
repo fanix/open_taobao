@@ -29,7 +29,7 @@ module OpenTaobao
         real_params.merge("num_iid" => params["num_iid"]) if params["num_iid"].present?
         real_params.merge("use_has_next" => params["use_has_next"]) if params["use_has_next"].present?
 
-        signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(real_params, app_secret, sign_method))
+        signed_params = real_params.merge("sign" => OpenTaobao::Utils.get_sign(real_params, app_secret, sign_method))
 
         OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
