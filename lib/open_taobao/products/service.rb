@@ -35,12 +35,27 @@ module OpenTaobao
         sign_method = (options[:sign_method] || :md5).to_s
         return_format = (options[:return_format] || :json).to_s
 
-        params = OpenTaobao::Utils.base_params('taobao.items.onsale.get', app_key, sign_method, return_format).merge({
+        real_params = OpenTaobao::Utils.base_params('taobao.items.onsale.get', app_key, sign_method, return_format).merge({
                  "session"    => params["session"],
                  "fields"    => params["fields"]
           })
 
-        signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
+        real_params = real_params.merge("q" => params["q"]) if params["q"].present?
+        real_params = real_params.merge("cid" => params["cid"]) if params["cid"].present?
+        real_params = real_params.merge("seller_cids" => params["seller_cids"]) if params["seller_cids"].present?
+        real_params = real_params.merge("page_no" => params["page_no"]) if params["page_no"].present?
+        real_params = real_params.merge("has_discount" => params["has_discount"]) if params["has_discount"].present?
+        real_params = real_params.merge("has_showcase" => params["tid"]) if params["has_showcase"].present?
+        real_params = real_params.merge("order_by" => params["num_iid"]) if params["order_by"].present?
+        real_params = real_params.merge("is_taobao" => params["is_taobao"]) if params["is_taobao"].present?
+        real_params = real_params.merge("is_ex" => params["is_ex"]) if params["is_ex"].present?
+        real_params = real_params.merge("page_size" => params["page_size"]) if params["page_size"].present?
+        real_params = real_params.merge("start_modified" => params["start_modified"]) if params["start_modified"].present?
+        real_params = real_params.merge("end_modified" => params["end_modified"]) if params["end_modified"].present?
+        real_params = real_params.merge("is_cspu" => params["tid"]) if params["is_cspu"].present?
+        real_params = real_params.merge("is_combine" => params["is_combine"]) if params["is_combine"].present?
+
+        signed_params = real_params.merge("sign" => OpenTaobao::Utils.get_sign(real_params, app_secret, sign_method))
 
         OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
@@ -57,12 +72,27 @@ module OpenTaobao
         sign_method = (options[:sign_method] || :md5).to_s
         return_format = (options[:return_format] || :json).to_s
 
-        params = OpenTaobao::Utils.base_params('taobao.items.inventory.get', app_key, sign_method, return_format).merge({
+        real_params = OpenTaobao::Utils.base_params('taobao.items.inventory.get', app_key, sign_method, return_format).merge({
                  "session"    => params["session"],
                  "fields"    => params["fields"]
           })
 
-        signed_params = params.merge("sign" => OpenTaobao::Utils.get_sign(params, app_secret, sign_method))
+        real_params = real_params.merge("q" => params["q"]) if params["q"].present?
+        real_params = real_params.merge("banner" => params["banner"]) if params["banner"].present?
+        real_params = real_params.merge("cid" => params["cid"]) if params["cid"].present?
+        real_params = real_params.merge("seller_cids" => params["seller_cids"]) if params["seller_cids"].present?
+        real_params = real_params.merge("page_no" => params["page_no"]) if params["page_no"].present?
+        real_params = real_params.merge("has_discount" => params["has_discount"]) if params["has_discount"].present?
+        real_params = real_params.merge("order_by" => params["num_iid"]) if params["order_by"].present?
+        real_params = real_params.merge("is_taobao" => params["is_taobao"]) if params["is_taobao"].present?
+        real_params = real_params.merge("is_ex" => params["is_ex"]) if params["is_ex"].present?
+        real_params = real_params.merge("page_size" => params["page_size"]) if params["page_size"].present?
+        real_params = real_params.merge("start_modified" => params["start_modified"]) if params["start_modified"].present?
+        real_params = real_params.merge("end_modified" => params["end_modified"]) if params["end_modified"].present?
+        real_params = real_params.merge("is_cspu" => params["tid"]) if params["is_cspu"].present?
+
+
+        signed_params = real_params.merge("sign" => OpenTaobao::Utils.get_sign(real_params, app_secret, sign_method))
 
         OpenTaobao::Utils.url_with_params signed_params, OpenTaobao.gateway_url
       end
