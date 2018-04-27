@@ -6,7 +6,7 @@ require "json"
 
 module OpenTaobao
   class << self
-    attr_accessor :app_key, :app_secret, :gateway_url, :oauth_token_gateway_url
+    attr_accessor :app_key, :app_secret, :gateway_url
   end
 end
 
